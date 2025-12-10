@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELVIN STORE TOPUP - Murah, Cepat, Aman</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">ELVIN STORE TOPUP</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#topup">Top Up</a></li>
+                    <li><a href="#cara-beli">Cara Beli</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="home">
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>Top Up Game Favoritmu, Mulai Dari Sini!</h2>
+                    <p>Proses Cepat, Harga Murah, Transaksi 100% Aman. Siap Mabar Kapan Saja.</p>
+                    <a href="#topup" class="cta-button">TOP UP SEKARANG</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="topup" class="topup-section">
+            <div class="container">
+                <div class="topup-form-container">
+                    <h3>Pilih Game untuk Top Up</h3>
+                    
+                    <div class="game-selection">
+                        <div class="game-card active" data-game="mlbb">
+                            <img src="https://via.placeholder.com/60/FF5733/FFFFFF?text=ML" alt="Mobile Legends">
+                            <span>Mobile Legends</span>
+                        </div>
+                        <div class="game-card" data-game="pubg">
+                            <img src="https://via.placeholder.com/60/007bff/FFFFFF?text=PUBG" alt="PUBG Mobile">
+                            <span>PUBG Mobile</span>
+                        </div>
+                        </div>
+
+                    <div id="topup-form" class="form-wrapper">
+                        <h4>Top Up <span id="game-name">Mobile Legends</span></h4>
+                        <form id="order-form">
+                            <div class="form-step step-1">
+                                <label for="user-id"><i class="fas fa-user-circle"></i> Masukkan ID User</label>
+                                <input type="text" id="user-id" placeholder="Contoh: 1234567 (1234)" required>
+                                <small class="help-text">ID User bisa dilihat di profil game Anda.</small>
+                            </div>
+
+                            <div class="form-step step-2">
+                                <label><i class="fas fa-gem"></i> Pilih Nominal Diamond</label>
+                                <div class="nominal-options" id="nominal-options">
+                                    </div>
+                            </div>
+                            
+                            <div class="form-step step-3">
+                                <label><i class="fas fa-wallet"></i> Pilih Metode Pembayaran</label>
+                                <div class="payment-options" id="payment-options">
+                                    </div>
+                            </div>
+                            
+                            <div class="form-step step-4">
+                                <label for="contact"><i class="fas fa-envelope"></i> Masukkan Alamat Email/WA (Opsional)</label>
+                                <input type="email" id="contact" placeholder="Email atau Nomor WhatsApp">
+                                
+                                <button type="submit" class="submit-button" disabled>PROSES PEMBAYARAN</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>/* Custom Properties (Variabel CSS) */
+:root {
+    --primary-color: #007bff; /* Biru cerah, bisa diganti dengan warna Brand Anda */
+    --secondary-color: #6c757d;
+    --background-light: #f8f9fa;
+    --background-dark: #343a40;
+    --text-color: #495057;
+    --white-color: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+    --card-bg: #ffffff;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Reset dan Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigasi */
+.main-header {
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-light);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x500/000000/FFFFFF?text=GAME+BACKGROUND') center center no-repeat;
+    background-size: cover;
+    color: var(--white-color);
+    text-align: center;
+    padding: 80px 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Top Up Section (Fokus Utama) */
+.topup-section {
+    padding: 60px 0;
+}
+
+.topup-form-container {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+.topup-form-container h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+/* Game Selection */
+.game-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.game-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
+}
+
+.game-card.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Ring active */
+}
+
+.game-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Form Styling */
+.form-wrapper h4 {
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.form-step {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.form-step label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.form-step i {
+    margin-right: 8px;
+}
+
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.help-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+}
+
+/* Nominal dan Pembayaran Options (Grid Layout) */
+.nominal-options, .payment-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.option-card {
+    background-color: var(--white-color);
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.option-card:hover {
+    border-color: var(--primary-color);
+}
+
+.option-card.selected {
+    border-color: #28a745; /* Hijau untuk selected */
+    background-color: #e2f0e6;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+    font-weight: 600;
+}
+
+.option-card input[type="radio"] {
+    display: none; /* Sembunyikan radio button asli */
+}
+
+.option-card .price {
+    display: block;
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 5px;
+}
+
+/* Tombol Submit */
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745; /* Hijau */
+    color: var(--white-color);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.submit-button:hover:not(:disabled) {
+    background-color: #1e7e34;
+}
+
+.submit-button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+
+/* Footer */
+.main-footer {
+    background-color: var(--background-dark);
+    color: var(--white-color);
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--white-color);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+    nav ul {
+        margin-top: 10px;
+    }
+    nav ul li a {
+        padding: 5px 10px;
+    }
+    .hero-content h2 {
+        font-size: 2em;
+    }
+    .topup-form-container {
+        padding: 20px;
+    }
+    .game-selection {
+        gap: 10px;
+    }
+}document.addEventListener('DOMContentLoaded', () => {
+    // --- Data Mockup untuk Nominal dan Pembayaran ---
+    const gameData = {
+        'mlbb': {
+            name: 'Mobile Legends',
+            nominals: [
+                { value: '59', price: 'Rp 15.000', count: '59 Diamonds' },
+                { value: '112', price: 'Rp 28.000', count: '112 Diamonds' },
+                { value: '257', price: 'Rp 65.000', count: '257 Diamonds' },
+                { value: '514', price: 'Rp 129.000', count: '514 Diamonds' }
+            ]
+        },
+        'pubg': {
+            name: 'PUBG Mobile',
+            nominals: [
+                { value: '60', price: 'Rp 18.000', count: '60 UC' },
+                { value: '300', price: 'Rp 88.000', count: '300 UC' },
+                { value: '600', price: 'Rp 175.000', count: '600 UC' }
+            ]
+        }
+    };
+    
+    const paymentMethods = [
+        { value: 'dana', name: 'DANA', icon: 'fas fa-wallet' },
+        { value: 'gopay', name: 'GoPay', icon: 'fas fa-mobile-alt' },
+        { value: 'bca', name: 'Transfer BCA', icon: 'fas fa-university' },
+        { value: 'alfamart', name: 'Alfamart', icon: 'fas fa-store' }
+    ];
+
+    // --- Elemen DOM ---
+    const gameCards = document.querySelectorAll('.game-card');
+    const gameNameSpan = document.getElementById('game-name');
+    const nominalOptionsDiv = document.getElementById('nominal-options');
+    const paymentOptionsDiv = document.getElementById('payment-options');
+    const userIdInput = document.getElementById('user-id');
+    const submitButton = document.querySelector('.submit-button');
+
+    let selectedGame = 'mlbb'; // Default game
+    let selectedNominal = null;
+    let selectedPayment = null;
+
+    // --- Fungsi Utama ---
+
+    /**
+     * Memuat dan menampilkan pilihan nominal dan pembayaran
+     */
+    function loadFormOptions() {
+        // 1. Nominal Options
+        nominalOptionsDiv.innerHTML = '';
+        const currentNominals = gameData[selectedGame].nominals;
+        
+        currentNominals.forEach(nominal => {
+            const card = document.createElement('label');
+            card.classList.add('option-card');
+            card.innerHTML = `
+                <input type="radio" name="nominal" value="${nominal.value}" data-price="${nominal.price}">
+                <span>${nominal.count}</span>
+                <span class="price">${nominal.price}</span>
+            `;
+            nominalOptionsDiv.appendChild(card);
+        });
+
+        // 2. Payment Options
+        paymentOptionsDiv.innerHTML = '';
+        paymentMethods.forEach(method => {
+            const card = document.createElement('label');
+            card.classList.add('option-card');
+            card.innerHTML = `
+                <input type="radio" name="payment" value="${method.value}">
+                <i class="${method.icon}"></i>
+                <span>${method.name}</span>
+            `;
+            paymentOptionsDiv.appendChild(card);
+        });
+
+        // Update Game Name
+        gameNameSpan.textContent = gameData[selectedGame].name;
+
+        // Reset pilihan saat ganti game
+        selectedNominal = null;
+        selectedPayment = null;
+        updateSubmitButtonState();
+    }
+    
+    /**
+     * Mengatur status tombol submit (enabled/disabled)
+     */
+    function updateSubmitButtonState() {
+        const isUserIdValid = userIdInput.value.trim().length > 5; // Contoh validasi minimal 5 karakter
+        const isNominalSelected = selectedNominal !== null;
+        const isPaymentSelected = selectedPayment !== null;
+
+        if (isUserIdValid && isNominalSelected && isPaymentSelected) {
+            submitButton.disabled = false;
+            submitButton.textContent = `Bayar ${selectedNominal.price} Sekarang`;
+        } else {
+            submitButton.disabled = true;
+            submitButton.textContent = 'LENGKAPI DATA DI ATAS';
+        }
+    }
+
+    // --- Event Listeners ---
+
+    // 1. Mengganti Game
+    gameCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Hapus kelas 'active' dari semua
+            gameCards.forEach(c => c.classList.remove('active'));
+            
+            // Tambahkan kelas 'active' ke yang diklik
+            this.classList.add('active');
+            
+            // Set game baru dan muat ulang form
+            selectedGame = this.getAttribute('data-game');
+            loadFormOptions();
+        });
+    });
+
+    // 2. Memilih Nominal (Menggunakan event delegation)
+    nominalOptionsDiv.addEventListener('click', (e) => {
+        const card = e.target.closest('.option-card');
+        if (card) {
+            document.querySelectorAll('#nominal-options .option-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            
+            const radio = card.querySelector('input[name="nominal"]');
+            selectedNominal = {
+                value: radio.value,
+                price: radio.getAttribute('data-price')
+            };
+            
+            updateSubmitButtonState();
+        }
+    });
+
+    // 3. Memilih Pembayaran (Menggunakan event delegation)
+    paymentOptionsDiv.addEventListener('click', (e) => {
+        const card = e.target.closest('.option-card');
+        if (card) {
+            document.querySelectorAll('#payment-options .option-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            
+            const radio = card.querySelector('input[name="payment"]');
+            selectedPayment = radio.value;
+            
+            updateSubmitButtonState();
+        }
+    });
+
+    // 4. Input ID User
+    userIdInput.addEventListener('input', updateSubmitButtonState);
+
+    // 5. Submit Form
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const userId = userIdInput.value.trim();
+        const contact = document.getElementById('contact').value.trim() || 'Tidak Diisi';
+        
+        if (selectedNominal && selectedPayment && userId) {
+            alert(`
+                ✅ ORDER BERHASIL DIBUAT!
+                -----------------------------
+                Game: ${gameData[selectedGame].name}
+                ID User: ${userId}
+                Nominal: ${selectedNominal.value} (${selectedNominal.price})
+                Pembayaran: ${selectedPayment.toUpperCase()}
+                Kontak: ${contact}
+                
+                (Ini adalah notifikasi simulasi. Anda perlu integrasi back-end nyata di sini.)
+            `);
+            // Di sini Anda akan mengirim data ke server
+        } else {
+            alert('Mohon lengkapi semua langkah top up.');
+        }
+    });
+    
+    // Inisialisasi awal
+    loadFormOptions();
+    updateSubmitButtonState();
+});
